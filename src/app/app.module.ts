@@ -7,6 +7,7 @@ import { rootRouterConfig } from './app-routing.module'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     [RouterModule.forRoot(rootRouterConfig, {useHash: false})]
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
